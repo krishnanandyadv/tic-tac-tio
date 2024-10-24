@@ -1,46 +1,49 @@
-body{
+body {
     background-color: #ab2aed;
     text-align: center;
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
-.container{
-    height: 70vh;
-    width: 70vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background-color: blue;
-}
-.game{
-    height: 90%;
-    width: 90%;
-    display: flex;
-    
-    flex-wrap: wrap;
-    align-items: center;
-   
-    justify-content: center;
-    /* background-color: aqua; */
-    gap: 10px;
- 
 
+.container {
+    width: 90vw;
+    max-width: 500px; /* Limit width for larger screens */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blue; */
 }
-.box{
-    height: 30%;
+
+.game {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box {
     width: 30%;
+    aspect-ratio: 1/1; /* Maintain square ratio */
     border-radius: 1rem;
-    box-shadow: 0  1rem rgba(0, 0,0, 0.2);
+    box-shadow: 0 1rem rgba(0, 0, 0, 0.2);
     border: none;
-    font-size: 90px;
+    font-size: calc(20px + 5vw); /* Responsive font size */
     font-weight: lighter;
-    color:#e20b8c;
+    color: #e20b8c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#reset{
+
+#reset, #new {
     padding: 1rem;
     font-size: 1.25rem;
     background-color: black;
@@ -48,29 +51,56 @@ body{
     color: white;
     border-radius: 10px;
     margin-top: 10px;
-
+    cursor: pointer;
 }
-#new{
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: black;
-    border: none;
-    color: white;
-    border-radius: 10px;
-  
 
-}
-.msg{
-    width: 90vh;
-    height: 80vh;
+.msg {
+    width: 90vw;
+    max-width: 500px;
+    height: 60vh;
     margin-top: 20%;
-
 }
-.massg{
- font-size: 40px;
+
+.massg {
+    font-size: calc(25px + 2vw);
     color: white;
-
 }
-.hide{
+
+.hide {
     display: none;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 100vw;
+        height: auto;
+    }
+    
+    .game {
+        gap: 5px; /* Smaller gaps between boxes */
+    }
+    
+    .box {
+        font-size: calc(16px + 5vw); /* Adjust font size for smaller screens */
+    }
+    
+    #reset, #new {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95vw;
+    }
+    
+    .box {
+        width: 28%;
+        font-size: calc(14px + 5vw);
+    }
+
+    .massg {
+        font-size: calc(18px + 4vw);
+    }
 }
